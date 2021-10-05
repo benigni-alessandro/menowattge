@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Create a User</h3>
+            <h3 class="page__heading">Edit User</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -19,7 +19,7 @@
                             </div>
                             @endif
 
-                            {!! Form::model($user, ['method'=>'PUT', 'route' => ['users.update', $user->id]]) !!}
+                            {!! Form::model($user, ['method'=>'PUT', 'route' => ['users.update', $user->id], 'enctype' => 'multipart/form-data']) !!}
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
@@ -35,14 +35,14 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="name">Password</label>
-                                        {!! Form::password('password', array('class'=>'form-control')) !!}
+                                        <label for="photo" class="form-label"><b>Image Profile</b></label>
+                                        <input type="file" class="form-control-file @error('photo') is-invalid @enderror" id="photo" name="photo" value="{{ old('photo', $user->photo) }}">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="name">Confirm password</label>
-                                        {!! Form::password('confirm-password', array('class'=>'form-control')) !!}
+                                        <label for="state" class="form-label"><b>State</b></label>
+                                        <input type="state" class="form-control-file @error('state') is-invalid @enderror" id="state" name="state" value="{{ old('state', $user->state) }}" >
                                     </div>
                                 </div>
                                 <div class="col-12">

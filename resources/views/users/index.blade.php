@@ -13,7 +13,7 @@
                             <h3 class="text-center">Users</h3>
                             <a class="btn btn-warning" href="{{route('users.create')}}">New</a>
                             <table class="table table-striped mt-2">
-                                <thead style="background-color: #6777ef;">
+                                <thead style="background-color: #4dd132d0;">
                                 <th style="color: white;">Number</th>
                                 <th style="color: white;">Name</th>
                                 <th style="color: white;">Email</th>
@@ -35,11 +35,13 @@
                                           @endif
                                         </td>
                                         <td>
+                                        @can('crear-user')
                                         <a class="btn btn-info" href="{{route('users.edit', $user->id)}}">Edit</a>    
                                         {!! Form::open(['method'=>'DELETE', 'route' => ['users.destroy', $user->id], 'style'=>'display:inline']) !!}
                                             {!! Form::submit('Eliminar', ['class'=>'btn btn-danger'])!!}
                                         {!! Form::close() !!}
                                         </td>
+                                        @endcan
                                        
                                     </tr>
                                     @endforeach

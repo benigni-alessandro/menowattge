@@ -10,7 +10,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('posts.store')}}" method="POST">
+                            <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
                                  @csrf
                                  @method('POST')
                                 <div class="form-group">
@@ -24,7 +24,8 @@
                                 <div class="form-floating">
                                     <label for="content">Content</label>
                                     <textarea type="text" name="content" class="form-control" style="height:80px;"></textarea>
-                                </div>                               
+                                </div>  
+                                <button type="submit" class="btn btn-primary">Save</button>                              
                             </form> 
                         </div>
                     </div>

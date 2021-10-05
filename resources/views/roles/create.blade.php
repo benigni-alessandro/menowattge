@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@can('crear-rol')
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Create a Role</h3>
@@ -52,4 +53,5 @@
             </div>
         </div>
     </section>
+@endcan
 @endsection

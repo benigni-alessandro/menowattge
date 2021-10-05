@@ -76,6 +76,27 @@
                             {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
                         </div>
                     </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="state" class="control-label">State</label>
+                        <input type="state" class="form-control @error('state') is-invalid @enderror" id="state" name="state" value="" >
+                        @error('state')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="photo" class="control-labeò">Image Profile</label>
+                        <input type="file" class="form-control form-control-file @error('photo') is-invalid @enderror" id="photo" name="photo" value="" >
+                        @error('photo')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+
+                    </div>
+                    
+                   
                     <div class="col-md-12 mt-4">
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">

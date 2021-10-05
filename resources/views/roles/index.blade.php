@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@can('borrar-rol')
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Rols</h3>
@@ -14,7 +15,7 @@
                             <a class="btn btn-warning" href="{{route('roles.create')}}">New</a>
                         @endcan
                         <table class="table table-striped mt-2">
-                            <thead style="background-color: #6777ef;">
+                            <thead style="background-color: #4dd132d0;">
                                 <th style="color: white;">Role</th>
                                 <th style="color: white;">Actions</th>
                             </thead>
@@ -25,7 +26,7 @@
                                         {{$role->name}}
                                     </td>
                                     <td>
-                                        @can('editar-rol')
+                                        @if('editar-rol')
                                             <a class="btn btn-primary" href="{{route('roles.edit', $role->id)}}">Editar</a>
                                         @endcan
                                         @can('borrar-rol')
@@ -44,4 +45,5 @@
             </div>
         </div>
     </section>
+@endcan
 @endsection

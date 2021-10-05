@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
         $admin->email = 'alebeni02@gmail.com';
         $admin->password = bcrypt('gggggggg');
         $admin->assignRole('Admin menowatt');
+        $admin->state = 'Sono l Admin';
         $admin->save();
     }
 }

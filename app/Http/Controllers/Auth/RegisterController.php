@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -65,11 +66,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
-         $user = User::create([
+        $photo = Storage::put('uploads', $data['photo']);
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'state'=>$data['state'],
+            'photo'=>$photo,
         ]);
         $rolearray = $data['roles'];
         return $user->assignRole($rolearray[0]);

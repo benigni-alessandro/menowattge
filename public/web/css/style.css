@@ -2730,9 +2730,14 @@ ul.nav-tabs li.nav-item a.nav-link.active i {
 }
 
 body, html {
-    min-height: 100%;
+    height: 100vh;
 }
 
+/* .section-header{
+    position: fixed;
+    z-index: 2;
+     width: 100%;
+} */
 body {
     background-color: #f4f6f9;
     font-size: 14px;
@@ -3389,13 +3394,33 @@ pre {
     border-radius: 30px;
     margin-left: 10px;
 }
+.creator {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.creator span{
+    margin-left: 20px;
+}
+.creator .user_image {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+}
 
 @media (max-width: 575.98px) {
     .page-error .page-search {
         width: 100%;
     }
 }
-
+img.logo{
+    vertical-align: middle;
+    border-style: none;
+    height: 50px;
+    width: auto;
+}
 /* 4.4 Layout */
 .main-sidebar {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
@@ -3426,7 +3451,7 @@ body.sidebar-mini .hide-sidebar-mini {
 body.sidebar-mini .main-sidebar {
     width: 65px;
     overflow: initial !important;
-    position: absolute;
+    position: fixed;
     box-shadow: none;
 }
 
@@ -3436,7 +3461,7 @@ body.sidebar-mini .main-sidebar:after {
     position: fixed;
     background-color: #fff;
     width: 65px;
-    height: 100%;
+    height: 100vh;
     left: 0;
     top: 0;
     z-index: -1;
@@ -3515,7 +3540,7 @@ body.sidebar-mini .main-sidebar .sidebar-menu > li > a.has-dropdown:after {
 
 body.sidebar-mini .main-sidebar .sidebar-menu > li.active > a {
     box-shadow: 0 4px 8px #acb5f6;
-    background-color: #6777ef;
+    background-color: #4dd132d0;
     color: #fff;
 }
 
@@ -3799,7 +3824,7 @@ body.layout-3 .main-footer {
     display: inline-block;
     width: 100%;
     text-align: center;
-    height: 60px;
+    height: 70px;
     line-height: 60px;
 }
 
@@ -3884,13 +3909,18 @@ body.layout-3 .main-footer {
 }
 
 .main-sidebar .sidebar-menu li a:hover {
-    background-color: #f8fafb;
+    background-color: #6777ef;
 }
 
 .main-sidebar .sidebar-menu li.active a {
     color: #6777ef;
     font-weight: 600;
-    background-color: #f8fafb;
+    background-color: #fff;
+}
+.main-sidebar .sidebar-menu li.active a:hover {
+    color: white;
+    font-weight: 600;
+    background-color: #4dd132d0;
 }
 
 .main-sidebar .sidebar-menu li.active a.has-dropdown:after {
@@ -4133,4 +4163,41 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     .action-btn {
         font-size: 9px;
     }
+}
+.card.post{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 400px;
+    color: white;
+    background-color: var(--primary);
+}
+.content-post{
+    overflow-y: auto;
+    height: 100px;    
+}
+.title-post{
+    width: 100%;
+    padding-left: 70px;
+    display: flex;
+    justify-content: flex-start;
+}
+.segundo{
+    width: 50%;
+    height: 200px;
+    overflow-y: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.card.post .card-body{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 70px;
+    padding-right: 70px;
+
 }

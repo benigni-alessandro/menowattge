@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 
 class PostController extends Controller
@@ -46,12 +50,23 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        'title'=>'required',
+        'title'=>'required|string|max:255|unique:posts',
         'content'=>'nullable',
-        'thumb'=>'nullable',
+        'thumb'=>'image|max:6000|required',
+        'users_id' => 'exists:users,id|nullable',
         ]);
-        Post::create($request->all());
-        return redirect()->route('posts.index');
+        $data = $request->all();
+
+        $thumb = Storage::put('uploads', $data['thumb']);
+        
+        $data['user_id'] = Auth::user()->id;
+        $post = new Post();
+        $post->fill($data);
+        $post->thumb = $thumb;
+        $post->user_id = $data['user_id'];
+        $post->slug = $this->generateSlug($post->title);
+        $post->save();
+        return redirect()->route('posts.index', compact('post'));
 
     }
 
@@ -91,8 +106,17 @@ class PostController extends Controller
             'content'=>'nullable',
             'thumb'=>'nullable',
             ]);
-        $post->update($request->all());
-        return redirect()->route('posts.index');
+        $data = $request->all();
+        $data['slug'] = $this->generateSlug($data['title'], $post->title != $data['title'], $post->slug);
+
+        
+
+        if (array_key_exists('thumb', $data)) {
+            $thumb = Storage::put('uploads', $data['thumb']);
+            $data['thumb'] = $thumb;
+        }
+        $post->update($data);
+        return redirect()->route('posts.index', compact('post'));
     }
 
     /**
@@ -103,7 +127,30 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post->delete();
+        
+        $post = Post::find($id);
+
+        if ($post)  {
+            if ($post->delete()){
+                 DB::statement('ALTER TABLE posts AUTO_INCREMENT = '.(count(Post::all())+1).';');
+                    }   
+            }
         return redirect()->route('posts.index');
     }
+
+    private function generateSlug(string $title, bool $change = true, string $old_slug = '') {
+        if (!$change) {
+          return $old_slug;
+        }
+        $slug = Str::slug($title,'-');
+        $slug_base = $slug;
+        $contatore = 1;
+        $post_with_slug = Post::where('slug','=',$slug)->first();
+        while($post_with_slug) {
+          $slug = $slug_base . '-' . $contatore;
+          $contatore++;
+          $post_with_slug = Post::where('slug','=',$slug)->first();
+      }
+        return $slug;
+  }
 }

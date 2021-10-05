@@ -13,4 +13,9 @@
     <i class="fas fa-user-tag"></i><span>Roles</span>
     </a>
 </li>
+<li class="side-menus {{ Request::is('*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{route('mailView')}}">
+    <i class="fas fa-paper-plane"></i><span>Email</span>
+    </a>
+</li>
 

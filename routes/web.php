@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\EmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,16 +18,21 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.register');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Auth::routes();
+
 
 
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('roles', RolController::class);
     Route::resource('users', UserController::class);
     Route::resource('posts', PostController::class);
+    Route::get('mail', [EmailController::class, 'mailView'])->name('mailView');
+    Route::post('send-mail', [EmailController::class, 'mailSend'])->name('mailSend');
+    
+    
 });

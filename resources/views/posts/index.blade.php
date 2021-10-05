@@ -3,40 +3,61 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Dashboard</h3>
+            <h3 class="page__heading">Posts</h3>
         </div>
+      
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body">
-                            @can('crear-rol')
-                                <a class="btn btn-warning" href="{{route('posts.create')}}">New Post</a>
-                            @endcan
-                            
-                            @foreach($posts as $post)
-                            <div class="card" style="">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h2>{ $post->title }}</h2>
-                                    <small style="display: none;">{{ $post->id }}</small>
-                                    <p class="card-text">{{ $post->content }}</p>
-                                </div>
-                                <form action="{{ route('posts.destroy', $post->id) }}" method="POST">                                        
-                                    @can('editar-post')
-                                    <a class="btn btn-info" href="{{ route('posts.edit', $post->id) }}">Editar</a>
-                                    @endcan
+                    @can('crear-post')
+                    <a class="btn btn-warning" href="{{route('posts.create')}}">New Post</a>
+                    @endcan
+                    </div>
+                    @foreach($posts as $post)
+                    <div class="card post">
+                        <div class="creator">
+                            <?php
+                            $user_identity = $post->user_id;                    
+                            $usuari = DB::table('users')
+                                ->where('id', '=', $user_identity)
+                                ->get();
+                            foreach($usuari as $usuario){
+                                $immagine = $usuario->photo;
+                            }
+                            ?>
 
-                                    @csrf
-                                    @method('DELETE')
-                                    @can('borrar-post')
-                                    <button type="submit" class="btn btn-danger">Borrar</button>
-                                    @endcan
-                                </form>
+                            
+                        @if(Auth::user()->photo)
+                            <img src="{{ asset('storage/' . $usuario->photo)}}"      
+                            class="user_image">
+                            <span><strong>{{$usuario->name}}</strong></span>
+                        @endif
+
+                        </div>
+                        <div class="title-post">
+                            <h3>{{ $post->title }}</h3>
+                        </div>
+                           <div class="card-body" style="max-height:500px;"> 
+                                <div class="primero">
+                                    
+                                    <img class="" style="width: 100%; max-width: 320px; height: auto; max-height:200px;" src="{{ asset('storage/' . $post->thumb)}}" alt="immagine non disponibile"> 
+                                </div>
+                                <div class="segundo">
+                                   <p class="card-text">{{ $post->content }}</p>
+                                </div>                                 
+                                
                             </div>
-                            @endforeach
+                            <form action="{{ route('posts.destroy', $post->id) }}" method="POST">                                        
+                                @csrf
+                                @method('DELETE')
+                                @can('borrar-post')
+                                <button type="submit" class="btn btn-danger">Borrar</button>
+                                @endcan
+                            </form>  
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
