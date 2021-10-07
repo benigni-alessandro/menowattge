@@ -7,7 +7,7 @@ return [
     $server = $url["us-cdbr-east-04.cleardb.com"],
     $username = $url["bb8a92f5860f31"],
     $password = $url["ce7c3460"],
-    $db = substr($url["heroku_5afecd94d273f93"], 1),
+    $db = substr($url["heroku_d0485f91a1f3018"], 1),
     $conn = new mysqli($server, $username, $password, $db),
 
     /*
