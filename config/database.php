@@ -3,6 +3,12 @@
 use Illuminate\Support\Str;
 
 return [
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL")),
+    $server = $url["us-cdbr-east-04.cleardb.com"],
+    $username = $url["bb8a92f5860f31"],
+    $password = $url["ce7c3460"],
+    $db = substr($url["heroku_5afecd94d273f93"], 1),
+    $conn = new mysqli($server, $username, $password, $db),
 
     /*
     |--------------------------------------------------------------------------
