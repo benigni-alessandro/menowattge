@@ -52,7 +52,8 @@ class UserController extends Controller
             'photo'=>'image|max:6000|nullable',
         ]);
         $input = $request->all();
-        $photo = Storage::put('uploads', $data['photo']);
+        
+        $photo = $request->file($data['photo'])->store('images', 's3');
         $input['password'] = Hash::make($input['password']);
         $post->photo = $photo;
         $user = User::create($input);
@@ -117,7 +118,7 @@ class UserController extends Controller
         }
         $user = User::find($id);
         if (array_key_exists('photo', $input)) {
-            $photo = Storage::put('uploads', $input['photo']);
+            $photo = $request->file($input['photo'])->store('images', 's3');
             $input['photo'] = $photo;
         }
         $user->update($input);
