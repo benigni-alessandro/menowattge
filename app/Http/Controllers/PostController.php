@@ -59,8 +59,8 @@ class PostController extends Controller
         $data['user_id'] = Auth::user()->id;
         if ($data['thumb']) {
             $file = $data['thumb'];
-            $path = $data['user_id']->store('images', 's3');
-            Storage::disk('s3')->put($filePath, file_get_contents($file));
+            $path = $request->file('thumb')->store('images', 's3');
+            Storage::disk('s3')->setVisibility($path, 'public');
             $image = [
                 'filename'=>basename($path),
                 'url'=>Storage::disk('s3')->url($path)
