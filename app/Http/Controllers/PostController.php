@@ -76,7 +76,6 @@ class PostController extends Controller
         $post->user_id = $data['user_id'];
         $post->slug = $this->generateSlug($post->title);
         $post->save();
-        dd($post->thumb);
         return redirect()->route('posts.index', compact('post'));
 
     }
