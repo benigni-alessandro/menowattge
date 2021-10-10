@@ -55,14 +55,19 @@ class PostController extends Controller
         'thumb'=>'image|max:6000|required',
         'users_id' => 'exists:users,id|nullable',
         ]);
-        $data = $request->all();
-
-        $thumb = Storage::put('uploads', $data['thumb']);
+        $data = $request->all();        
+        $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
+        if ($request['photo']) {
+            $file = $request['photo'];
+            $name = time() . $file->getClientOriginalName();
+            $filePath = 'images/' . $name;
+            Storage::disk('s3')->put($filePath, file_get_contents($file));
+        }
         
         $data['user_id'] = Auth::user()->id;
         $post = new Post();
         $post->fill($data);
-        $post->thumb = $thumb;
+        $post->thumb = $file;
         $post->user_id = $data['user_id'];
         $post->slug = $this->generateSlug($post->title);
         $post->save();
