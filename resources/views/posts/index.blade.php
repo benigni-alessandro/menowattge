@@ -44,7 +44,7 @@
                                     Storage::disk('s3')->files('$post->thumb');
                                     ?>
                                     <img class="" style="width: 100%; max-width: 320px; height: auto; max-height:200px;"
-                                    src="{{Storage::disk('s3')->response($post->thumb)}}" 
+                                    src="https:/menowattgeapp1.s3.us-east-2.amazonaws.com/images/kdBJVPhA6dy6EMGL4fvVoMSYDo659dRyobCT2NUz.jpg " 
                                     alt="immagine non disponibile"> 
                                 </div>
                                 <div class="segundo">
