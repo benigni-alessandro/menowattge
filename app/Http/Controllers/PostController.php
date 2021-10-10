@@ -62,11 +62,11 @@ class PostController extends Controller
             $name = time() . $file->getClientOriginalName();
             $filePath = 'images/' . $name;
             Storage::disk('s3')->put($filePath, file_get_contents($file));
-            }
+        }
         
         $post = new Post();
         $post->fill($data);
-        $post->thumb = $file;
+        $post->thumb = $filePath;
         $post->user_id = $data['user_id'];
         $post->slug = $this->generateSlug($post->title);
         $post->save();
