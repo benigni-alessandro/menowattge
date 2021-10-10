@@ -41,7 +41,7 @@
                            <div class="card-body" style="max-height:500px;"> 
                                 <div class="primero">
                                     
-                                    <img class="" style="width: 100%; max-width: 320px; height: auto; max-height:200px;" src="{{ asset('storage/' . $post->thumb)}}" alt="immagine non disponibile"> 
+                                    <img class="" style="width: 100%; max-width: 320px; height: auto; max-height:200px;" src="{{Storage::disk('s3')->url($imagePath)}}" alt="immagine non disponibile"> 
                                 </div>
                                 <div class="segundo">
                                    <p class="card-text">{{ $post->content }}</p>
