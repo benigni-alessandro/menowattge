@@ -40,8 +40,10 @@
                         </div>
                            <div class="card-body" style="max-height:500px;"> 
                                 <div class="primero">
-                                    
-                                    <img class="" style="width: 100%; max-width: 320px; height: auto; max-height:200px;" src="{{Storage::disk('s3')->get($post->thumb)}}" alt="immagine non disponibile"> 
+                                    <?php
+                                    Storage::disk('s3')->files('$post->thumb');
+                                    ?>
+                                    <img class="" style="width: 100%; max-width: 320px; height: auto; max-height:200px;" src="" alt="immagine non disponibile"> 
                                 </div>
                                 <div class="segundo">
                                    <p class="card-text">{{ $post->content }}</p>

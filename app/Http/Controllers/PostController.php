@@ -59,19 +59,25 @@ class PostController extends Controller
         $data['user_id'] = Auth::user()->id;
         if ($data['thumb']) {
             $file = $data['thumb'];
-            $name = time() . $file->getClientOriginalName();
-            $filePath = 'images/' . $name;
-            $path = Storage::disk('s3')->url($filePath);
+            $path = $data['user_id']->store('images', 's3');
             Storage::disk('s3')->put($filePath, file_get_contents($file));
-        }
+            $image = [
+                'filename'=>basename($path),
+                'url'=>Storage::disk('s3')->url($path)
+            ];
+            // $name = time() . $file->getClientOriginalName();
+            // $filePath = 'images/' . $name;
+            // Storage::disk('s3')->put($filePath, file_get_contents($file));
+            }
         
         $post = new Post();
         $post->fill($data);
-        $post->thumb = $filePath;
+        $post->thumb = $image;
         $post->user_id = $data['user_id'];
         $post->slug = $this->generateSlug($post->title);
         $post->save();
-        return redirect()->route('posts.index', compact('post', 'filePath'))->with('image', $path);
+        dd($post->thumb);
+        return redirect()->route('posts.index', compact('post'));
 
     }
 
