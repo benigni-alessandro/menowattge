@@ -29,7 +29,7 @@
 
                             
                         @if(Auth::user()->photo)
-                            <img src="{{ asset('storage/' . $usuario->photo)}}"      
+                            <img src="{{Auth::user()->photo}}"      
                             class="user_image">
                             <span><strong>{{$usuario->name}}</strong></span>
                         @endif
