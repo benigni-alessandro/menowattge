@@ -125,8 +125,14 @@ class UserController extends Controller
         }
         $user = User::find($id);
         if (array_key_exists('photo', $input)) {
-            $photo = $request->file($input['photo'])->store('images', 's3');
-            $input['photo'] = $photo;
+            $file = $input['photo'];
+            $path = $request->file('photo')->store('images', 's3');
+            Storage::disk('s3')->setVisibility($path, 'public');
+            $immagine = [
+                'filename'=>basename($path),
+                'url'=>Storage::disk('s3')->url($path)
+            ];
+            $input['photo'] = $immagine['photo'];
         }
         $user->update($input);
         DB::table('model_has_roles')->where('model_id',$id)->delete();
