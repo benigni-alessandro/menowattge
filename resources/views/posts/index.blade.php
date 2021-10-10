@@ -42,7 +42,7 @@
                                 <div class="primero">
                 
                                     <img class="" style="width: 100%; max-width: 320px; height: auto; max-height:200px;"
-                                    src="{{Storage::disk('s3')->response($post->thumb)}}" 
+                                    src="{{route($post->thumb)}}" 
                                     alt="immagine non disponibile"> 
                                 </div>
                                 <div class="segundo">
