@@ -14,17 +14,17 @@
                     {{csrf_field()}}
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <label>Name:</label><span class="required">*</span>
-                            <input type="text" name="name" id="pfName" class="form-control" required autofocus tabindex="1">
+                            <label for="name">Name</label>
+                            {!! Form::text('name', null, array('class'=>'form-control')) !!}
                         </div>
                         <div class="form-group col-sm-6 d-flex">
                             <div class="col-sm-4 col-md-6 pl-0 form-group">
                                 <label>Profile Image:</label>
                                 <br>
                                 <label
-                                        class="image__file-upload btn btn-primary text-white"
+                                        class=" btn btn-primary text-white" 
                                         tabindex="2"> Choose
-                                    <input type="file" name="photo" id="pfImage" class="d-none" >
+                                    <input type="file" name="photo" id="photo" class="d-none" >
                                 </label>
                             </div>
                             <div class="col-sm-3 preview-image-video-container float-right mt-1">
@@ -35,8 +35,8 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <label>Email:</label><span class="required">*</span>
-                            <input type="text" name="email" id="pfEmail" class="form-control" required tabindex="3">
+                        <label for="state" class="form-label"><b>State</b></label>
+                        <input type="state" class="form-control-file @error('state') is-invalid @enderror" id="state" name="state" value="{{ old('state', $user->state) }}" >
                         </div>
                     </div>
                     <div class="text-right">
