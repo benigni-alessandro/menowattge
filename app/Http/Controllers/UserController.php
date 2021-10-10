@@ -132,7 +132,7 @@ class UserController extends Controller
                 'filename'=>basename($path),
                 'url'=>Storage::disk('s3')->url($path)
             ];
-            $input['photo'] = $immagine['photo'];
+            $input['photo'] = $immagine['url'];
         }
         $user->update($input);
         DB::table('model_has_roles')->where('model_id',$id)->delete();
