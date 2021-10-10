@@ -63,13 +63,14 @@ class PostController extends Controller
             $filePath = 'images/' . $name;
             Storage::disk('s3')->put($filePath, file_get_contents($file));
             }
+        $path = $filePath;
         $post = new Post();
         $post->fill($data);
         $post->thumb = $file;
         $post->user_id = $data['user_id'];
         $post->slug = $this->generateSlug($post->title);
         $post->save();
-        return redirect()->route('posts.index', compact('post', 'file'));
+        return redirect()->route('posts.index', compact('post', 'path'));
 
     }
 
