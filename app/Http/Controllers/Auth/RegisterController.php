@@ -66,7 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $path = $request->file(data['photo'])->store('images', 's3');
+        $path = $data->file('photo')->store('images', 's3');
         Storage::disk('s3')->setVisibility($path, 'public');
         $img = [
             'filename'=>basename($path),
