@@ -10,6 +10,9 @@
             <a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 @if(Auth::user()->photo)
+                <?php
+                dd(Auth::user());
+                ?>
                 <img alt="image" src="{{$user->photo}}"
                 
                     class="rounded-circle mr-1 thumbnail-rounded user-thumbnail ">
