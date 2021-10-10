@@ -11,9 +11,8 @@
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 @if(Auth::user()->photo)
                 <?php
-                
                 ?>
-                <img alt="image" src="{{$user->photo}}"
+                <img alt="image" src="Auth::user()->photo"
                 
                     class="rounded-circle mr-1 thumbnail-rounded user-thumbnail ">
                 @endif
