@@ -12,7 +12,7 @@
                 @if(Auth::user()->photo)
                 <?php
                 ?>
-                <img alt="image" src="Auth::user()->photo"
+                <img alt="image" src="{{Auth::user()->photo}}"
                 
                     class="rounded-circle mr-1 thumbnail-rounded user-thumbnail ">
                 @endif
