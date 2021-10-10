@@ -51,20 +51,20 @@ class UserController extends Controller
             'state'=>'nullable',
             'photo'=>'image|max:6000|nullable',
         ]);
-        $input = $request->all();
-        $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
-        
-        if ($request['photo']) {
-            $file = $request['photo'];
-            $name = time() . $file->getClientOriginalName();
-            $filePath = 'images/' . $name;
-            Storage::disk('s3')->put($filePath, file_get_contents($file));
+        $data = $request->all();
+        if ($data['photo']) {
+            $file = $data['photo'];
+            $path = $request->file('photo')->store('images', 's3');
+            Storage::disk('s3')->setVisibility($path, 'public');
+            $immagine = [
+                'filename'=>basename($path),
+                'url'=>Storage::disk('s3')->url($path)
+            ];
         }
-        
-        $input['password'] = Hash::make($input['password']);
-        $post->photo = $file;
-        $user = User::create($input);
-        $user->assignRole($request->input('roles'));
+        $data['password'] = Hash::make($input['password']);
+        $post->photo = $immagine['url'];
+        $user = User::create($data);
+        $user->assignRole($request->$data['roles']);
         return redirect()->route('users.index');
     }
 
