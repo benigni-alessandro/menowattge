@@ -56,19 +56,16 @@ class PostController extends Controller
         'users_id' => 'exists:users,id|nullable',
         ]);
         $data = $request->all();        
-        $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
-        if ($request['thumb']) {
-            $file = $request['thumb'];
+        $data['user_id'] = Auth::user()->id;
+        if ($data['thumb']) {
+            $file = $data['thumb'];
             $name = time() . $file->getClientOriginalName();
             $filePath = 'images/' . $name;
             Storage::disk('s3')->put($filePath, file_get_contents($file));
-        }
-        
-        
-        $data['user_id'] = Auth::user()->id;
+            }
         $post = new Post();
         $post->fill($data);
-        $post->thumb = $request['thumb'];
+        $post->thumb = $file;
         $post->user_id = $data['user_id'];
         $post->slug = $this->generateSlug($post->title);
         $post->save();
@@ -114,12 +111,12 @@ class PostController extends Controller
             ]);
         $data = $request->all();
         $data['slug'] = $this->generateSlug($data['title'], $post->title != $data['title'], $post->slug);
-
-        
-
         if (array_key_exists('thumb', $data)) {
-            $thumb = Storage::put('uploads', $data['thumb']);
-            $data['thumb'] = $thumb;
+            $file = $data['thumb'];
+            $name = time() . $file->getClientOriginalName();
+            $filePath = 'images/' . $name;
+            Storage::disk('s3')->put($filePath, file_get_contents($file));
+            $data['thumb'] = $file;
         }
         $post->update($data);
         return redirect()->route('posts.index', compact('post'));
