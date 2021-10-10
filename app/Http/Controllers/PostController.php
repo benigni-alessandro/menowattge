@@ -72,7 +72,7 @@ class PostController extends Controller
         
         $post = new Post();
         $post->fill($data);
-        $post->thumb = $image;
+        $post->thumb = $image['url'];
         $post->user_id = $data['user_id'];
         $post->slug = $this->generateSlug($post->title);
         $post->save();
