@@ -66,14 +66,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $photo = Storage::put('uploads', $data['photo']);
+        $path = $request->file(data['photo'])->store('images', 's3');
+        Storage::disk('s3')->setVisibility($path, 'public');
+        $img = [
+            'filename'=>basename($path),
+            'url'=>Storage::disk('s3')->url($path)
+        ];
 
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'state'=>$data['state'],
-            'photo'=>$photo,
+            'photo'=>$img['url'],
         ]);
         $rolearray = $data['roles'];
         return $user->assignRole($rolearray[0]);
