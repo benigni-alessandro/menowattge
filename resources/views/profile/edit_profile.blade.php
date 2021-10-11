@@ -44,7 +44,7 @@
                     <div class="row">
                         <div class="form-group col-sm-6">
                         <label for="state" class="control-label">State</label>
-                        <input type="state" class="form-control @error('state') is-invalid @enderror" id="state" name="state" value="{{ old(Auth::user()->state)}}">
+                        <input type="state" class="form-control @error('state') is-invalid @enderror" id="state" name="state" value="{{ Auth::user()->state }}">
                         @error('state')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
