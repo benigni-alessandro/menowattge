@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<?php
+                                        use Spatie\Permission\Models\Role;  
+                                        
+                                        
+                                        $roles = DB::table('roles')->pluck('name', 'name')->all();
+                                        
+                                        
+                                        ?>
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Edit User</h3>
@@ -47,24 +55,9 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <?php
-                                        use Spatie\Permission\Models\Role;  
-                                        $id = Auth::user()->id;          
-                                        $user = User::find($id);
-                                        if($id != 1) {
-                                            $roles = DB::table('roles')
-                                                         ->where('id', '!=', 1)
-                                                         ->pluck('name', 'name')->all();
-                                        } else{
-                                            $roles = DB::table('roles')->pluck('name', 'name')->all();
-                                        }
-                                                         
-                                        $userRole = $user->roles->pluck('name','name')->all();
-                                        return $roles;
                                         
-                                        ?>
                                         <label for="name">Role</label>
-                                        {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
+                                        !! Form::text('roles', null, array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
                                 <div class="col-12">
