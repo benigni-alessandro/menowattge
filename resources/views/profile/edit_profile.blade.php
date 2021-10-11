@@ -46,7 +46,12 @@
                                         <input type="state" class="form-control-file @error('state') is-invalid @enderror" id="state" name="state" value="{{ old('state',  Auth::user()->state) }}" >
                                     </div>
                                 </div>
-                                
+                                <div class="col-12" style="display:none;">
+                                    <div class="form-group">
+                                        <label for="name">Role</label>
+                                        <input type="file" class="form-control-file @error('photo') is-invalid @enderror" id="photo" name="role" value="{{ old('photo',  Auth::user()->role) }}">
+                                    </div>
+                                </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">
                                         Save
