@@ -6,14 +6,6 @@
                 <h5 class="modal-title">Edit Profile</h5>
                 <button type="button" aria-label="Close" class="close outline-none" data-dismiss="modal">×</button>
             </div>
-            @if($errors->any())
-                <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                    <h3>Error on creation</h3>
-                    @foreach($errors->all() as $error)
-                    <p class="badge badge-danger">{{$error}}</p>
-                    @endforeach
-                </div>
-            @endif
             <form method="POST" id="editProfileForm" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="alert alert-danger d-none" id="editProfileValidationErrorsBox"></div>
@@ -22,8 +14,8 @@
                     {{csrf_field()}}
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <label for="name">Name</label>
-                            {!! Form::text('name', null, array('class'=>'form-control')) !!}
+                            <label>Name:</label><span class="required">*</span>
+                            <input type="text" name="name" id="pfName" class="form-control" required autofocus tabindex="1">
                         </div>
                         <div class="form-group col-sm-6 d-flex">
                             <div class="col-sm-4 col-md-6 pl-0 form-group">
