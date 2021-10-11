@@ -32,21 +32,6 @@
                                      src="{{Auth::user()->photo}}"/>
                             </div>
                         </div>
-                        <div class="form-group col-sm-6 d-flex">
-                            <div class="col-sm-4 col-md-6 pl-0 form-group">
-                                <label>Profile Image:</label>
-                                <br>
-                                <label
-                                        class="image__file-upload btn btn-primary text-white"
-                                        tabindex="2"> Choose
-                                    <input type="file" name="photo" id="pfImage" class="d-none" >
-                                </label>
-                            </div>
-                            <div class="col-sm-3 preview-image-video-container float-right mt-1">
-                                <img id='edit_preview_photo' class="img-thumbnail user-img user-profile-img profilePicture"
-                                     src="{{asset('img/logo.png')}}"/>
-                            </div>
-                        </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-6">
