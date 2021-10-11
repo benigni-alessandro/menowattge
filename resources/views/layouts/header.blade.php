@@ -7,7 +7,7 @@
 
     @if(\Illuminate\Support\Facades\Auth::user())
         <li class="dropdown">
-            <a href="#" data-toggle="dropdown"
+            <a href="{{route('users.edit', Auth::user()->id)}}" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 @if(Auth::user()->photo)
                 <?php
