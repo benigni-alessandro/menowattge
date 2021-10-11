@@ -18,7 +18,7 @@
                         <div class="form-group col-sm-6 d-flex">
                        
                                         <label for="photo" class="form-label"><b>Image Profile</b></label>
-                                        <input type="file" class="form-control-file @error('photo') is-invalid @enderror" id="photo" name="photo" value="{{ old('photo', $user->photo) }}">
+                                        <input type="file" class="form-control-file @error('photo') is-invalid @enderror" id="photo" name="photo" value="{{ old('photo', Auth::user()->photo) }}">
                              
                                 
                         </div>
