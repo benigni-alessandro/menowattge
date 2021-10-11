@@ -49,10 +49,7 @@
                     </div>
                     <div>
                     <div class="col-12">
-                        <div class="form-group">
-                             <label for="name">Role</label>
-                            {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
-                        </div>
+                        
                         </div>
                     </div>
                     <div class="text-right">
