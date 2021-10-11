@@ -97,6 +97,7 @@ class UserController extends Controller
         }
                          
         $userRole = $user->roles->pluck('name','name')->all();
+        dd($user);
         return view('users.edit',compact('user','roles','userRole'));
     }
 
@@ -118,7 +119,6 @@ class UserController extends Controller
             'photo'=>'image|max:6000|nullable',
         ]);
         $input = $request->all();
-        dd($input);
         if(!empty($input['password'])){ 
             $input['password'] = Hash::make($input['password']);
         }else{
