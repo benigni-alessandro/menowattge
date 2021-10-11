@@ -20,7 +20,7 @@
                             </div>
                             @endif
 
-                            {!! Form::model($user, ['method'=>'PUT', 'route' => ['users.update', $user->id], 'enctype' => 'multipart/form-data']) !!}
+                            {!! Form::model( Auth::user(), ['method'=>'PUT', 'route' => ['users.update', Auth::user()->id], 'enctype' => 'multipart/form-data']) !!}
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
@@ -37,21 +37,16 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="photo" class="form-label"><b>Image Profile</b></label>
-                                        <input type="file" class="form-control-file @error('photo') is-invalid @enderror" id="photo" name="photo" value="{{ old('photo', $user->photo) }}">
+                                        <input type="file" class="form-control-file @error('photo') is-invalid @enderror" id="photo" name="photo" value="{{ old('photo',  Auth::user()->photo) }}">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="state" class="form-label"><b>State</b></label>
-                                        <input type="state" class="form-control-file @error('state') is-invalid @enderror" id="state" name="state" value="{{ old('state', $user->state) }}" >
+                                        <input type="state" class="form-control-file @error('state') is-invalid @enderror" id="state" name="state" value="{{ old('state',  Auth::user()->state) }}" >
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="name">Role</label>
-                                        {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>
+                                
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">
                                         Save
