@@ -47,6 +47,10 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
+                                        <?php
+                                        use Spatie\Permission\Models\Role;
+                                        $roles = Role::pluck('name', 'name')->all();
+                                        ?>
                                         <label for="name">Role</label>
                                         {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
                                     </div>

@@ -61,7 +61,6 @@ class UserController extends Controller
                 'url'=>Storage::disk('s3')->url($path)
             ];
         }
-        $roles = Role::pluck('name', 'name')->all();
         $data['password'] = Hash::make($input['password']);
         $post->photo = $immagine['url'];
         $user = User::create($data);
