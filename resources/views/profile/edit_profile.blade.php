@@ -6,7 +6,7 @@
                 <h5 class="modal-title">Edit Profile</h5>
                 <button type="button" aria-label="Close" class="close outline-none" data-dismiss="modal">×</button>
             </div>
-            <form method="POST" id="editProfileForm" action="{{route('users.update', Auth::user()->id)}}" enctype="multipart/form-data">
+            <form method="POST"  action="{{route('users.update', Auth::user()->id)}}" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="alert alert-danger d-none" id="editProfileValidationErrorsBox"></div>
                     <input type="hidden" name="user_id" id="pfUserId">
