@@ -118,6 +118,7 @@ class UserController extends Controller
             'photo'=>'image|max:6000|nullable',
         ]);
         $input = $request->all();
+        dd($input);
         if(!empty($input['password'])){ 
             $input['password'] = Hash::make($input['password']);
         }else{
@@ -136,7 +137,7 @@ class UserController extends Controller
         }
         $user->update($input);
         DB::table('model_has_roles')->where('model_id',$id)->delete();
-        dd($user);
+        
         $user->assignRole($request->input('roles'));
         return redirect()->route('users.index');
     }
