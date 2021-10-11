@@ -29,17 +29,14 @@
                             </div>
                             <div class="col-sm-3 preview-image-video-container float-right mt-1">
                                 <img id='edit_preview_photo' class="img-thumbnail user-img user-profile-img profilePicture"
-                                     src="{{Auth::user()->photo}}"/>
+                                     src="{{asset('img/logo.png')}}"/>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-6">
-                        <label for="state" class="control-label">State</label>
-                        <input type="state" class="form-control @error('state') is-invalid @enderror" id="state" name="state" value="{{ Auth::user()->state }}">
-                        @error('state')
-                            <small class="text-danger">{{ $message }}</small>
-                        @enderror
+                            <label>Email:</label><span class="required">*</span>
+                            <input type="text" name="email" id="pfEmail" class="form-control" required tabindex="3">
                         </div>
                     </div>
                     <div class="text-right">
