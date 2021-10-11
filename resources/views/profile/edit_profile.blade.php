@@ -49,7 +49,7 @@
                                 <div class="col-12" style="display:none;">
                                     <div class="form-group">
                                         <label for="name">Role</label>
-                                        <input type="file" class="form-control-file @error('photo') is-invalid @enderror" id="photo" name="roles" value="{{ old('photo',  Auth::user()->roles) }}">
+                                        {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
                                 <div class="col-12">
