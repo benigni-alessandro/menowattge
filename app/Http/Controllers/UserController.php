@@ -113,7 +113,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'same:confirm-password',
-            'roles' => 'required',
+            'roles' => 'nullable',
             'state'=>'nullable',
             'photo'=>'image|max:6000|nullable',
         ]);
@@ -136,6 +136,7 @@ class UserController extends Controller
         }
         $user->update($input);
         DB::table('model_has_roles')->where('model_id',$id)->delete();
+        dd($user);
         $user->assignRole($request->input('roles'));
         return redirect()->route('users.index');
     }
