@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-
+<?php
+                                        use Spatie\Permission\Models\Role;  
+                                        
+                                        
+                                        $roles = DB::table('roles')->pluck('name', 'name')->all();
+                                        
+                                        
+                                        ?>
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Edit User</h3>
