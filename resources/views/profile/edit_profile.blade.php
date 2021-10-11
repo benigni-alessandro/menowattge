@@ -6,6 +6,14 @@
                 <h5 class="modal-title">Edit Profile</h5>
                 <button type="button" aria-label="Close" class="close outline-none" data-dismiss="modal">×</button>
             </div>
+            @if($errors->any())
+                <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                    <h3>Error on creation</h3>
+                    @foreach($errors->all() as $error)
+                    <p class="badge badge-danger">{{$error}}</p>
+                    @endforeach
+                </div>
+            @endif
             <form method="POST" id="editProfileForm" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="alert alert-danger d-none" id="editProfileValidationErrorsBox"></div>
@@ -29,14 +37,17 @@
                             </div>
                             <div class="col-sm-3 preview-image-video-container float-right mt-1">
                                 <img id='edit_preview_photo' class="img-thumbnail user-img user-profile-img profilePicture"
-                                     src="{{asset('img/logo.png')}}"/>
+                                     src="{{Auth::user()->photo)}}"/>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-6">
-                        <label for="state" class="form-label"><b>State</b></label>
-                        <input type="state" class="form-control-file @error('state') is-invalid @enderror" id="state" name="state" value="{{ old('state', $user->state) }}" >
+                        <label for="state" class="control-label">State</label>
+                        <input type="state" class="form-control @error('state') is-invalid @enderror" id="state" name="state" value="{{ old('state', Auth::user()->state) }}">
+                        @error('state')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                         </div>
                     </div>
                     <div class="text-right">
