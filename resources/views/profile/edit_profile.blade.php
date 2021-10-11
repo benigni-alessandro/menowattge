@@ -6,7 +6,7 @@
                 <h5 class="modal-title">Edit Profile</h5>
                 <button type="button" aria-label="Close" class="close outline-none" data-dismiss="modal">×</button>
             </div>
-            <form method="POST" id="editProfileForm" enctype="multipart/form-data">
+            <form method="POST" id="editProfileForm" action="{{route('users.store'}}" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="alert alert-danger d-none" id="editProfileValidationErrorsBox"></div>
                     <input type="hidden" name="user_id" id="pfUserId">
@@ -15,7 +15,22 @@
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <label>Name:</label><span class="required">*</span>
-                            <input type="text" name="name" id="pfName" class="form-control" required autofocus tabindex="1">
+                            <input type="text" name="name" id="pfName" class="form-control" required autofocus tabindex="1" disabled>
+                        </div>
+                        <div class="form-group col-sm-6 d-flex">
+                            <div class="col-sm-4 col-md-6 pl-0 form-group">
+                                <label>Profile Image:</label>
+                                <br>
+                                <label
+                                        class="image__file-upload btn btn-primary text-white" 
+                                        tabindex="2"> Choose
+                                    <input type="file" name="photo" id="pfImage" class="d-none" >
+                                </label>
+                            </div>
+                            <div class="col-sm-3 preview-image-video-container float-right mt-1">
+                                <img id='edit_preview_photo' class="img-thumbnail user-img user-profile-img profilePicture"
+                                     src="{{Auth::user()->photo}}"/>
+                            </div>
                         </div>
                         <div class="form-group col-sm-6 d-flex">
                             <div class="col-sm-4 col-md-6 pl-0 form-group">
@@ -35,8 +50,15 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-6">
+                        <label for="state" class="control-label">State</label>
+                        <input type="state" class="form-control @error('state') is-invalid @enderror" id="state" name="state" value="{{ Auth::user()->state }}">
+                        @error('state')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                        </div>
+                        <div class="form-group col-sm-6">
                             <label>Email:</label><span class="required">*</span>
-                            <input type="text" name="email" id="pfEmail" class="form-control" required tabindex="3">
+                            <input type="text" name="email" id="pfEmail" class="form-control" required tabindex="3" disabled>
                         </div>
                     </div>
                     <div class="text-right">
@@ -50,4 +72,6 @@
         </div>
     </div>
 </div>
+
+
 
