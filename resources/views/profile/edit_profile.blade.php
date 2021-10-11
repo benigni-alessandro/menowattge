@@ -48,9 +48,7 @@
                         </div>
                     </div>
                     <div>
-                    <div class="col-12">
-                        
-                        </div>
+                    
                     </div>
                     <div class="text-right">
                     <button type="submit" class="btn btn-primary">
