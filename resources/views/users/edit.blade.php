@@ -48,8 +48,19 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <?php
-                                        use Spatie\Permission\Models\Role;
-                                        $roles = Role::pluck('name', 'name')->all();
+                                        use Spatie\Permission\Models\Role;  
+                                        $id = Auth::user()->id;          
+                                        $user = User::find($id);
+                                        if($id != 1) {
+                                            $roles = DB::table('roles')
+                                                         ->where('id', '!=', 1)
+                                                         ->pluck('name', 'name')->all();
+                                        } else{
+                                            $roles = DB::table('roles')->pluck('name', 'name')->all();
+                                        }
+                                                         
+                                        $userRole = $user->roles->pluck('name','name')->all();
+                                        
                                         ?>
                                         <label for="name">Role</label>
                                         {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
