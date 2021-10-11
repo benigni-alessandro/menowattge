@@ -22,9 +22,9 @@
                                 <label>Profile Image:</label>
                                 <br>
                                 <label
-                                        class=" btn btn-primary text-white" 
+                                        class="image__file-upload btn btn-primary text-white"
                                         tabindex="2"> Choose
-                                    <input type="file" name="photo" id="photo" class="d-none" >
+                                    <input type="file" name="photo" id="pfImage" class="d-none" >
                                 </label>
                             </div>
                             <div class="col-sm-3 preview-image-video-container float-right mt-1">
