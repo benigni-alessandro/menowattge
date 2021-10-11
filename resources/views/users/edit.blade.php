@@ -60,6 +60,7 @@
                                         }
                                                          
                                         $userRole = $user->roles->pluck('name','name')->all();
+                                        return $roles;
                                         
                                         ?>
                                         <label for="name">Role</label>
