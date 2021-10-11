@@ -97,7 +97,6 @@ class UserController extends Controller
         }
                          
         $userRole = $user->roles->pluck('name','name')->all();
-        dd($user);
         return view('users.edit',compact('user','roles','userRole'));
     }
 

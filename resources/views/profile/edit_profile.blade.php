@@ -6,7 +6,7 @@
                 <h5 class="modal-title">Edit Profile</h5>
                 <button type="button" aria-label="Close" class="close outline-none" data-dismiss="modal">×</button>
             </div>
-            <form method="PUT" action="{{route('users.update', Auth::user()->id)}}" enctype="multipart/form-data">
+            {!! Form::model(Auth::user(), ['method'=>'PUT', 'route' => ['users.update', Auth::user()->id], 'enctype' => 'multipart/form-data']) !!}
                 <div class="modal-body">
                     <div class="alert alert-danger d-none" id="editProfileValidationErrorsBox"></div>
                     <input type="hidden" name="user_id" id="pfUserId">
@@ -14,8 +14,9 @@
                     {{csrf_field()}}
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <label>Name:</label><span class="required">*</span>
-                            <input type="text" name="name" id="pfName" class="form-control" required autofocus tabindex="1" disabled>
+                            <label for="name">Name</label>
+                            {!! Form::text('name', null, array('class'=>'form-control')) !!}
+                        </div>
                         </div>
                         <div class="form-group col-sm-6 d-flex">
                             <div class="col-sm-4 col-md-6 pl-0 form-group">
@@ -43,17 +44,24 @@
                         </div>
                         <div class="form-group col-sm-6">
                             <label>Email:</label><span class="required">*</span>
-                            <input type="text" name="email" id="pfEmail" class="form-control" required tabindex="3" disabled>
+                            <input type="text" name="email" id="email" class="form-control" required tabindex="3" disabled>
+                        </div>
+                    </div>
+                    <div>
+                    <div class="col-12">
+                        <div class="form-group">
+                             <label for="name">Role</label>
+                            {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
+                        </div>
                         </div>
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-light ml-1 edit-cancel-margin margin-left-5"
-                                data-dismiss="modal">Cancel
-                        </button>
+                    <button type="submit" class="btn btn-primary">
+                        Save
+                     </button>
                     </div>
                 </div>
-            </form>
+            {!! Form::close() !!}
         </div>
     </div>
 </div>
