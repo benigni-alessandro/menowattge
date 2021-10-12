@@ -54,7 +54,7 @@
                                 @csrf
                                 @method('DELETE')
                                 @can('borrar-post')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                <button type="submit" class="btn btn-danger only-icon"><span>Eliminar </span><i class="fas fa-trash"></i></button>
                                 @endcan
                             </form>  
                         </div>
