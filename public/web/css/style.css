@@ -4248,8 +4248,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 .blog-post {
     width:100%;
     padding: 5rem;
-    background-color: var(--primary);
-    box-sishadow: 0 1.4rem 8rem rgba(0,0,0,.2);
+    
     display: flex;
     align-items:center;
     border-radius: .8rem;
@@ -4284,7 +4283,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 .date-post span {
     display: block;
-    color: rgba(0,0,0,.5);
+    color: #fff;
     font-size: 1.6rem;
     font-weight: 600;
     margin: .5rem 0;
@@ -4299,7 +4298,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 .post-text{
     margin-bottom: 3rem;
     font-size: 1.4rem;
-    color: rgba(0,0,0,.7);
+    color: #fff;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -4333,3 +4332,26 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
     }
 } 
+card.post{
+    width: 100%;
+    background-color: var(--primary);
+    box-sishadow: 0 1.4rem 8rem rgba(0,0,0,.2);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 400px;
+    color: white;
+    background-color: var(--primary);
+}
+.content-post{
+    overflow-y: auto;
+    height: 100px;    
+}
+.title-post{
+    width: 100%;
+    padding-left: 70px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
