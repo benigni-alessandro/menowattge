@@ -14,17 +14,17 @@
                             <a class="btn btn-warning" href="{{route('users.create')}}">New</a>
                             <table class="table table-striped mt-2">
                                 <thead style="background-color: #4dd132d0;">
-                                <th style="color: white;" class="med-w">Name</th>
+                                <th style="color: white;" class="med-w table-user">Name</th>
                                 <th style="color: white;" class="dis-none">Email</th>
-                                <th style="color: white;" class="med-w">Rol</th>
-                                <th style="color: white;" class="med-w">Buttons</th>
+                                <th style="color: white;" class="med-w table-user">Rol</th>
+                                <th style="color: white;" class="med-w table-user">Buttons</th>
                                 </thead>
                                 <tbody>
                                     @foreach($users as $user)
                                     <tr>
-                                        <td>{{$user->name}}</td>
+                                        <td class="table-user">{{$user->name}}</td>
                                         <td class="dis-none">{{$user->email}}</td>
-                                        <td>
+                                        <td class="table-user">
                                           @if(!empty($user->getRoleNames()))
                                             @foreach($user->getRoleNames() as $rolName)
                                             <span>{{$rolName}}</span>
@@ -32,7 +32,7 @@
                                             @endforeach
                                           @endif
                                         </td>
-                                        <td>
+                                        <td class="table-user">
                                         @can('crear-user')
                                         <button class="btn btn-info" href="{{route('users.edit', $user->id)}}"><span class="only-icon">Edit </span><i class="fas fa-user-edit"></i></button>    
                                         {!! Form::open(['method'=>'DELETE', 'route' => ['users.destroy', $user->id], 'style'=>'display:inline']) !!}

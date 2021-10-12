@@ -4217,9 +4217,6 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     .t-body {
         width: 100%;
     }
-    .t-body tr td{
-        padding: 5px;
-    }
     .t-head {
         width: 100%;
     }
@@ -4235,4 +4232,8 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     }
 } 
 
-    
+@media only screen and (max-width: 350px) {
+    .table-user{
+        padding: 5px;
+    }
+} 
