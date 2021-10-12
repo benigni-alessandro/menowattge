@@ -3,6 +3,14 @@
     Register
 @endsection
 @section('content')
+                        @if($errors->any())
+                            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                                <h3>Error on creation</h3>
+                                @foreach($errors->all() as $error)
+                                <p class="badge badge-danger">{{$error}}</p>
+                                @endforeach
+                            </div>
+                         @endif
     <div class="card card-primary">
         <div class="card-header"><h4>Register</h4></div>
 
