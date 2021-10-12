@@ -15,10 +15,7 @@
     <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-    <!-- Add the styles -->
-<link href="responsive-tables.css" type="text/css" media="screen" rel="stylesheet"/>
-<!-- Add the JS plugin -->
-<script type="text/javascript" src="responsive-tables.js"></script>
+    
 
 @yield('page_css')
 <!-- Template CSS -->
