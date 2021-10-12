@@ -4204,3 +4204,8 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     padding-right: 70px;
 
 }
+@media (max-width: 575.98px) {
+    span.only-icon {
+        display: none;
+    }
+}
