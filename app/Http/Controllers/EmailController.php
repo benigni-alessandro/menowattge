@@ -29,6 +29,8 @@ class EmailController extends Controller
         foreach($clienti as $cliente => $index){
             array_push($clientindex, $index);
         }
+        dd($clientindex);
+
         $path = $request->file('attachment')->store('images', 's3');
         Storage::disk('s3')->setVisibility($path, 'public');
         $documento = [
