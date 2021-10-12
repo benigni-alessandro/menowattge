@@ -4259,7 +4259,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     min-width: 25rem;
     max-width: 25rem;
     height: 20rem;
-    transform:translateX(-8rem);
+    transform:translateX(-6rem);
     position: relative;
 }
 
