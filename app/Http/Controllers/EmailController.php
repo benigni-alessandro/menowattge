@@ -23,20 +23,14 @@ class EmailController extends Controller
         $clienti=[];
         $clienti = DB::table('model_has_roles')
             ->select('role_id', 'model_id')
-            ->where('role_id', '=', 15)->get();
+            ->where('role_id', '=', 2)->get();
         
         $clientindex = [];
         foreach($clienti as $cliente => $index){
             array_push($clientindex, $index);
         }
-        $path = $request->file('attachment')->store('images', 's3');
-        Storage::disk('s3')->setVisibility($path, 'public');
-        $documento = [
-            'filename'=>basename($path),
-            'url'=>Storage::disk('s3')->url($path)
-        ];
-        // dd($documento);
-        // $path = public_path('uploads');
+
+        $path = public_path('uploads');
         $attachment = $request->file('attachment');
         $name = time().'.'.$attachment->getClientOriginalExtension();;
         if(!File::exists($path)) {
@@ -45,7 +39,6 @@ class EmailController extends Controller
         $attachment->move($path, $name);
 
         $filename = $path.'/'.$name;
-        
 
         
 
@@ -59,7 +52,7 @@ class EmailController extends Controller
                 'subject' => $request->subject,
                 'name' => $daticliente->name,
                 'email' => $daticliente->email,
-                'content' => $documento['url']
+                'content' => $request->content,
                 
               ];
               
