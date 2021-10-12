@@ -19,7 +19,9 @@
                             </div>
                             @endif
 
-                            {!! Form::open(array('route'=>'users.store', 'method'=>'POST')) !!}
+                            <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
+
+                            
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
@@ -68,7 +70,7 @@
                                 </div>
 
                             </div>
-                            {!! Form::close() !!}
+                            </form>
                         </div>
                     </div>
                 </div>
