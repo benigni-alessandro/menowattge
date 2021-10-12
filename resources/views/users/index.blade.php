@@ -14,7 +14,6 @@
                             <a class="btn btn-warning" href="{{route('users.create')}}">New</a>
                             <table class="table table-striped mt-2">
                                 <thead style="background-color: #4dd132d0;">
-                                <th style="color: white;">Number</th>
                                 <th style="color: white;">Name</th>
                                 <th style="color: white;">Email</th>
                                 <th style="color: white;">Rol</th>
@@ -23,7 +22,6 @@
                                 <tbody>
                                     @foreach($users as $user)
                                     <tr>
-                                        <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>
@@ -36,9 +34,9 @@
                                         </td>
                                         <td>
                                         @can('crear-user')
-                                        <a class="btn btn-info" href="{{route('users.edit', $user->id)}}">Edit</a>    
+                                        <a class="btn btn-info" href="{{route('users.edit', $user->id)}}">Edit <i class="fas fa-user-edit"></i></a>    
                                         {!! Form::open(['method'=>'DELETE', 'route' => ['users.destroy', $user->id], 'style'=>'display:inline']) !!}
-                                            {!! Form::submit('Eliminar', ['class'=>'btn btn-danger'])!!}
+                                            {!! Form::submit('Eliminar', ['class'=>'btn btn-danger'] <i class="fas fa-trash"></i>)!!}
                                         {!! Form::close() !!}
                                         </td>
                                         @endcan
