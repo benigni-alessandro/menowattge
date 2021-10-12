@@ -4295,7 +4295,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
     }
 } 
-card.post{
+.card.post{
     width: 100%;
     box-sishadow: 0 1.4rem 8rem rgba(0,0,0,.2);
     display: flex;
