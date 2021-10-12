@@ -26,9 +26,9 @@
                             </div>
                             
                         </div>
-                        <div class="">
+                        <div style="display: flex; justify-content: center;">
                             @can('borrar-post')
-                                <form style="display:block;" action="{{ route('posts.destroy', $post->id)}}" method="POST">                                        
+                                <form  action="{{ route('posts.destroy', $post->id)}}" method="POST">                                        
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"><span class="only-icon">Eliminar </span><i class="fas fa-trash"></i></button>  
