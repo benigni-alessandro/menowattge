@@ -23,14 +23,12 @@ class EmailController extends Controller
         $clienti=[];
         $clienti = DB::table('model_has_roles')
             ->select('role_id', 'model_id')
-            ->where('role_id', '=', 2)->get();
+            ->where('role_id', '=', 15)->get();
         
         $clientindex = [];
         foreach($clienti as $cliente => $index){
             array_push($clientindex, $index);
         }
-        dd($clienti);
-
         $path = $request->file('attachment')->store('images', 's3');
         Storage::disk('s3')->setVisibility($path, 'public');
         $documento = [
