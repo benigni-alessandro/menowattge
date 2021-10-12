@@ -19,48 +19,105 @@
                             </div>
                             @endif
 
-                            {!! Form::open(array('route'=>'users.store', 'method'=>'POST')) !!}
-                            
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="name">Name</label>
-                                        {!! Form::text('name', null, array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="name">Email</label>
-                                        {!! Form::text('email', null, array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="name">Password</label>
-                                        {!! Form::password('password', array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="name">Confirm password</label>
-                                        {!! Form::password('confirm-password', array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="name">Role</label>
-                                        {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">
-                                        Save
-                                    </button>
-                                </div>
-
+                            <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                @csrf
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="first_name">Full Name:</label><span
+                                    class="text-danger">*</span>
+                            <input id="firstName" type="text"
+                                   class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                   name="name"
+                                   tabindex="1" placeholder="Enter Full Name" value="{{ old('name') }}"
+                                   autofocus required>
+                            <div class="invalid-feedback">
+                                {{ $errors->first('name') }}
                             </div>
-                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Email:</label><span
+                                    class="text-danger">*</span>
+                            <input id="email" type="email"
+                                   class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                   placeholder="Enter Email address" name="email" tabindex="1"
+                                   value="{{ old('email') }}"
+                                   required autofocus>
+                            <div class="invalid-feedback">
+                                {{ $errors->first('email') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="password" class="control-label">Password
+                                :</label><span
+                                    class="text-danger">*</span>
+                            <input id="password" type="password"
+                                   class="form-control{{ $errors->has('password') ? ' is-invalid': '' }}"
+                                   placeholder="Set account password" name="password" tabindex="2" required>
+                            <div class="invalid-feedback">
+                                {{ $errors->first('password') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="password_confirmation"
+                                   class="control-label">Confirm Password:</label><span
+                                    class="text-danger">*</span>
+                            <input id="password_confirmation" type="password" placeholder="Confirm account password"
+                                   class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid': '' }}"
+                                   name="password_confirmation" tabindex="2">
+                            <div class="invalid-feedback">
+                                {{ $errors->first('password_confirmation') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <?php
+                        use Spatie\Permission\Models\Role;
+                        $roles = DB::table('roles')
+                         ->where('id', '!=', 1)
+                         ->pluck('name', 'name')->all();
+                         ?>
+                            {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="state" class="control-label">State</label>
+                        <input type="state" class="form-control @error('state') is-invalid @enderror" id="state" name="state" value="" >
+                        @error('state')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="photo" class="control-labeò">Image Profile</label>
+                        <input type="file" class="form-control form-control-file @error('photo') is-invalid @enderror" id="photo" name="photo" value="" >
+                        @error('photo')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+
+                    </div>
+                    
+                   
+                    <div class="col-md-12 mt-4">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
                         </div>
                     </div>
                 </div>
