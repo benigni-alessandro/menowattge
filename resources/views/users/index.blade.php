@@ -34,7 +34,7 @@
                                         </td>
                                         <td>
                                         @can('crear-user')
-                                        <a class="btn btn-info" href="{{route('users.edit', $user->id)}}">Edit <i class="fas fa-user-edit"></i></a>    
+                                        <a class="btn btn-info" href="{{route('users.edit', $user->id)}}">Edit <i class="fas fa-edit"></i></a>    
                                         {!! Form::open(['method'=>'DELETE', 'route' => ['users.destroy', $user->id], 'style'=>'display:inline']) !!}
                                         <button type="submit" class="btn btn-danger">Eliminar <i class="fas fa-trash"></i></button>
                                         {!! Form::close() !!}
