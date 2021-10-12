@@ -14,7 +14,7 @@
                 @endcan
                     <div class="card">
                     @foreach($posts as $post)
-                        <div>
+                        <div class="creator">
                         <?php
                             $user_identity = $post->user_id;                    
                             $usuari = DB::table('users')
@@ -42,7 +42,7 @@
                             </div>
                             <h2 class="title-post">{{ $post->title }}</h2>
                             <p class="post-text">{{ $post->content }}</p>
-                            <form action="{{ route('posts.destroy', $post->id) }}" method="POST">                                        
+                            <form style="display:block;" action="{{ route('posts.destroy', $post->id) }}" method="POST">                                        
                                 @csrf
                                 @method('DELETE')
                                 @can('borrar-post')
