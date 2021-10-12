@@ -4214,6 +4214,12 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     .card-body {
         width: 100%;
     }
+    .t-body {
+        width: 100%;
+    }
+    .t-head {
+        width: 100%;
+    }
     .med-w{
         width:50%;
     }
