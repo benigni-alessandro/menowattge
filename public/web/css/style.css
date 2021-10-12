@@ -4327,7 +4327,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     padding-left: 70px;
     display: flex;
     color: #fff;
-    justify-content: flex-start;
+    align-self: flex-start;
 }
 
 
