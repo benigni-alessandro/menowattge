@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <h3 class="text-center">Users</h3>
                             <a class="btn btn-warning" href="{{route('users.create')}}">New</a>
-                            <table class="table table-striped mt-2" style="max-width: 100%; overflow-x: auto">
+                            <table class="table table-striped mt-2">
                                 <thead style="background-color: #4dd132d0;">
                                 <th style="color: white;">Name</th>
                                 <th style="color: white;" class="dis-none">Email</th>
