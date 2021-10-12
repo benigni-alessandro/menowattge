@@ -35,8 +35,8 @@ class EmailController extends Controller
             'filename'=>basename($path),
             'url'=>Storage::disk('s3')->url($path)
         ];
-        dd($documento);
-        $path = public_path('uploads');
+        // dd($documento);
+        // $path = public_path('uploads');
         $attachment = $request->file('attachment');
         $name = time().'.'.$attachment->getClientOriginalExtension();;
         if(!File::exists($path)) {
@@ -45,7 +45,7 @@ class EmailController extends Controller
         $attachment->move($path, $name);
 
         $filename = $path.'/'.$name;
-        dd($filename);
+        
 
         
 
