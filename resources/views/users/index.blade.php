@@ -10,9 +10,6 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                        @can('crear-user')
-                            <a class="btn btn-warning" href="{{route('users.create')}}">New</a>
-                        @endcan
                             <table class="table table-striped mt-2">
                                 <thead style="background-color: #4dd132d0;">
                                 <th style="color: white;" class="med-w table-user">Name</th>
