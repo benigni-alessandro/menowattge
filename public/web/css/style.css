@@ -4167,43 +4167,6 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
         font-size: 9px;
     }
 }
-.card.post{
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 400px;
-    color: white;
-    background-color: var(--primary);
-}
-.content-post{
-    overflow-y: auto;
-    height: 100px;    
-}
-.title-post{
-    width: 100%;
-    padding-left: 70px;
-    display: flex;
-    justify-content: flex-start;
-}
-.segundo{
-    width: 50%;
-    height: 200px;
-    overflow-y: auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-.card.post .card-body{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 70px;
-    padding-right: 70px;
-
-}
 @media only screen and (max-width: 848px) {
     span.only-icon {
         display: none;
@@ -4339,7 +4302,7 @@ card.post{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 400px;
+    height: 520px;
     color: white;
     background-color: var(--primary);
 }
