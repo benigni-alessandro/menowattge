@@ -4217,6 +4217,9 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     .t-body {
         width: 100%;
     }
+    .t-body td{
+        padding: 5%;
+    }
     .t-head {
         width: 100%;
     }
