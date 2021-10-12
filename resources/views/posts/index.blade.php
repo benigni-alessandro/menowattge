@@ -54,9 +54,7 @@
                             <span><strong>{{$usuario->name}}</strong></span>
                         @endif
                         </div>
-            
                     </div>
-                   
                     @endforeach 
                 </div>
             </div>
