@@ -52,6 +52,16 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
+                                    <div class="form-group">
+                                         <label for="photo" class="control-labeò">Image Profile</label>
+                                        <input type="file" class="form-control form-control-file @error('photo') is-invalid @enderror" id="photo" name="photo" value="" >
+                                        @error('photo')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+
+                                </div>
+                                <div class="col-12">
                                     <button type="submit" class="btn btn-primary">
                                         Save
                                     </button>
