@@ -66,7 +66,7 @@ class EmailController extends Controller
                 'email' => $daticliente->email,
                 'content' => $documento['url'],
               ];
-              dd($datamessage);
+              
               
             
             //   Mail::send('email-template', $datamessage, function($message) use ($datamessage, $fileupload) {
