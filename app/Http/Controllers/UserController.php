@@ -114,8 +114,8 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'same:confirm-password',
             'roles' => 'nullable',
-            'state'=>'nullable',
-            'photo'=>'image|max:6000|nullable',
+            'state'=>'required',
+            'photo'=>'image|max:6000|required',
         ]);
         $input = $request->all();
         if(!empty($input['password'])){ 
