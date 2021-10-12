@@ -14,10 +14,10 @@
                             <a class="btn btn-warning" href="{{route('users.create')}}">New</a>
                             <table class="table table-striped mt-2">
                                 <thead style="background-color: #4dd132d0;">
-                                <th style="color: white;">Name</th>
+                                <th style="color: white;" class="med-w">Name</th>
                                 <th style="color: white;" class="dis-none">Email</th>
-                                <th style="color: white;">Rol</th>
-                                <th style="color: white;">Buttons</th>
+                                <th style="color: white;" class="med-w">Rol</th>
+                                <th style="color: white;" class="med-w">Buttons</th>
                                 </thead>
                                 <tbody>
                                     @foreach($users as $user)
