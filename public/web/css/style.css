@@ -3060,7 +3060,7 @@ pre {
     .icon-wrap {
         width: 100%;
     }
-    .only-icon span{
+    .only-icon {
         display: none;
     }
 }
