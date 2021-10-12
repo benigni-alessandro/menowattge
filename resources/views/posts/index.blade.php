@@ -27,10 +27,7 @@
                             <h1 class="title-post">{{ $post->title }}</h1>
                             <p class="post-text">{{ $post->content }}</p>
                         </div>
-                        
-                    
-                    </div>
-                    <div class="">
+                        <div class="">
                     @can('borrar-post')
                         <form style="display:block;" action="{{ route('posts.destroy', $post->id}}" method="POST">                                        
                                 @csrf
@@ -57,6 +54,9 @@
                             <span><strong>{{$usuario->name}}</strong></span>
                         @endif
                         </div>
+                    
+                    </div>
+                   
                     @endforeach 
                 </div>
             </div>
