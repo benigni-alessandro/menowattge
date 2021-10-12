@@ -30,15 +30,27 @@ class EmailController extends Controller
             array_push($clientindex, $index);
         }
 
-        $path = public_path('uploads');
-        $attachment = $request->file('attachment');
-        $name = time().'.'.$attachment->getClientOriginalExtension();;
-        if(!File::exists($path)) {
-            File::makeDirectory($path, $mode = 0777, true, true);
-        }
-        $attachment->move($path, $name);
+        // $path = public_path('uploads');
+        // $attachment = $request->file('attachment');
+        // $name = time().'.'.$attachment->getClientOriginalExtension();;
+        // if(!File::exists($path)) {
+        //     File::makeDirectory($path, $mode = 0777, true, true);
+        // }
+        // $attachment->move($path, $name);
 
-        $filename = $path.'/'.$name;
+        // $filename = $path.'/'.$name;
+        if ($request->attachment) {
+            $file = $request->attachment;
+            $path = $request->file('attachment')->store('images', 's3');
+            Storage::disk('s3')->setVisibility($path, 'public');
+            $documento = [
+                'filename'=>basename($path),
+                'url'=>Storage::disk('s3')->url($path)
+            ];
+            // $name = time() . $file->getClientOriginalName();
+            // $filePath = 'images/' . $name;
+            // Storage::disk('s3')->put($filePath, file_get_contents($file));
+            }
 
         
 
@@ -52,9 +64,9 @@ class EmailController extends Controller
                 'subject' => $request->subject,
                 'name' => $daticliente->name,
                 'email' => $daticliente->email,
-                'content' => $request->content,
-                
+                'content' => $documento['url'],
               ];
+              dd($datamessage);
               
             
             //   Mail::send('email-template', $datamessage, function($message) use ($datamessage, $fileupload) {
