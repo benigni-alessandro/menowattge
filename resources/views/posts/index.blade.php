@@ -24,7 +24,7 @@
                                 <div class="date-post">
                                 <span>ciao 121212</span>
                             </div>
-                            <h2 class="title-post">{{ $post->title }}</h2>
+                            <h1 class="title-post">{{ $post->title }}</h1>
                             <p class="post-text">{{ $post->content }}</p>
                         </div>
                         
