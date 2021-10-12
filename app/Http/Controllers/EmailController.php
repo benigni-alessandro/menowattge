@@ -29,7 +29,13 @@ class EmailController extends Controller
         foreach($clienti as $cliente => $index){
             array_push($clientindex, $index);
         }
-
+        $path = $request->file('attachment')->store('images', 's3');
+        Storage::disk('s3')->setVisibility($path, 'public');
+        $documento = [
+            'filename'=>basename($path),
+            'url'=>Storage::disk('s3')->url($path)
+        ];
+        dd($documento);
         $path = public_path('uploads');
         $attachment = $request->file('attachment');
         $name = time().'.'.$attachment->getClientOriginalExtension();;
