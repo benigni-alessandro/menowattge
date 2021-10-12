@@ -4254,7 +4254,7 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 .title-post {
     font-size: 2.5rem;
-    margin: 1.5rem 0 2 rem;
+    margin: 1.5rem ;
     color:var(--primary);
 
 }
@@ -4324,7 +4324,6 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 .title-post{
     width: 100%;
-    padding-left: 70px;
     display: flex;
     color: #fff;
     align-self: flex-start;
