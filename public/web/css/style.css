@@ -4210,10 +4210,12 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     }
     .card {
         width: 100%;
-        overflow-x: auto;
     }
     .card-body {
         width: 100%;
+    }
+    .med-w{
+        width:50%;
     }
 
     
