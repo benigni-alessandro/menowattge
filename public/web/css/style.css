@@ -4204,12 +4204,12 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     padding-right: 70px;
 
 }
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 848px) {
     span.only-icon {
         display: none;
     }
 }
-@media only screen and (max-width: 647) {
+@media only screen and (max-width: 647px) {
     .dis-none {
         display: none;
     }
