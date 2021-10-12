@@ -4297,13 +4297,11 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 } 
 card.post{
     width: 100%;
-    background-color: var(--primary);
     box-sishadow: 0 1.4rem 8rem rgba(0,0,0,.2);
     display: flex;
     align-items: center;
     justify-content: flex-start;
     height: 520px;
-    color: white;
     background-color: var(--primary);
 }
 .content-post{
