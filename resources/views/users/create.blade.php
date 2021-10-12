@@ -19,8 +19,7 @@
                             </div>
                             @endif
 
-                            <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
-
+                            {!! Form::open(array('route'=>'users.store', 'method'=>'POST')) !!}
                             
                             <div class="row">
                                 <div class="col-12">
@@ -53,16 +52,7 @@
                                         {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                         <label for="photo" class="control-labeò">Image Profile</label>
-                                        <input type="file" class="form-control form-control-file @error('photo') is-invalid @enderror" id="photo" name="photo" value="" >
-                                        @error('photo')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-
-                                </div>
+                                
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">
                                         Save
@@ -70,7 +60,7 @@
                                 </div>
 
                             </div>
-                            </form>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>
