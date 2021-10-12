@@ -29,7 +29,7 @@
                         </div>
                         <div class="">
                     @can('borrar-post')
-                        <form style="display:block;" action="{{ route('posts.destroy', $post->id}}" method="POST">                                        
+                        <form style="display:block;" action="{{ route('posts.destroy', $post->id)}}" method="POST">                                        
                                 @csrf
                                 @method('DELETE')
                                 
@@ -54,7 +54,7 @@
                             <span><strong>{{$usuario->name}}</strong></span>
                         @endif
                         </div>
-                    
+            
                     </div>
                    
                     @endforeach 
