@@ -12,7 +12,7 @@
                 @can('crear-post')
                     <a class="btn btn-warning" href="{{route('posts.create')}}">New Post</a>
                 @endcan
-                    <div class="card">
+                    <div class="card post">
                     @foreach($posts as $post)
                         
                         <div class="blog-post">
@@ -27,14 +27,17 @@
                             </div>
                             <h2 class="title-post">{{ $post->title }}</h2>
                             <p class="post-text">{{ $post->content }}</p>
-                            <form style="display:block;" action="{{ route('posts.destroy', $post->id) }}" method="POST">                                        
+                        </div>
+                        <div class="">
+                        <form style="display:block;" action="{{ route('posts.destroy', $post->id) }}" method="POST">                                        
                                 @csrf
                                 @method('DELETE')
                                 @can('borrar-post')
                                 <button type="submit" class="btn btn-danger"><span class="only-icon">Eliminar </span><i class="fas fa-trash"></i></button>
                                 @endcan
                             </form>  
-                            <div class="creator">
+                        </div>
+                        <div class="creator">
                         <?php
                             $user_identity = $post->user_id;                    
                             $usuari = DB::table('users')
@@ -49,7 +52,6 @@
                             class="user_image">
                             <span><strong>{{$usuario->name}}</strong></span>
                         @endif
-                        </div>
                         </div>
                     @endforeach 
                     </div>
