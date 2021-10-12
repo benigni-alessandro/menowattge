@@ -32,7 +32,7 @@
                                           @endif
                                         </td>
                                         <td class="table-user">
-                                        <a class="btn btn-primary" href="{{route('users.edit', $user->id)}}"><span class="only-icon">Edit </span><i class="fas fa-user-edit"></i></a>    
+                                        <a class="btn btn-primary" href="#"><span class="only-icon">Edit </span><i class="fas fa-user-edit"></i></a>    
                                         @can('crear-user')
                                         {!! Form::open(['method'=>'DELETE', 'route' => ['users.destroy', $user->id], 'style'=>'display:inline']) !!}
                                         <button type="submit" class="btn btn-danger"><span class="only-icon">Eliminar </span><i class="fas fa-trash"></i></button>
