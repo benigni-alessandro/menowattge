@@ -4299,8 +4299,11 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
     .blog-post-img {
         min-width: 100%;
         max-width: 100%;
-        transform:translate(0,-8rem);
+        transform:translate(0,-3rem);
 
+    }
+    .card.post{
+        max-height: 1000px;       
     }
 } 
 .card.post{
