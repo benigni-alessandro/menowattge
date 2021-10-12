@@ -33,7 +33,7 @@
                                         </td>
                                         <td class="table-user">
                                         @can('crear-user')
-                                        <button class="btn btn-info" href="{{route('users.edit', $user->id)}}"><span class="only-icon">Edit </span><i class="fas fa-user-edit"></i></button>    
+                                        <button class="btn btn-primary" href="{{route('users.edit', $user->id)}}"><span class="only-icon">Edit </span><i class="fas fa-user-edit"></i></button>    
                                         {!! Form::open(['method'=>'DELETE', 'route' => ['users.destroy', $user->id], 'style'=>'display:inline']) !!}
                                         <button type="submit" class="btn btn-danger"><span class="only-icon">Eliminar </span><i class="fas fa-trash"></i></button>
                                         {!! Form::close() !!}
