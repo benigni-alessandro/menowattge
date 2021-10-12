@@ -3060,8 +3060,8 @@ pre {
     .icon-wrap {
         width: 100%;
     }
-    button.only-icon span{
-        display:none;
+    .only-icon span{
+        display: none;
     }
 }
 
