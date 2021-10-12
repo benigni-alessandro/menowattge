@@ -31,13 +31,15 @@
                     @endforeach 
                     </div>
                     <div class="">
-                        <form style="display:block;" action="{{ route('posts.destroy', $post->id) }}" method="POST">                                        
+                    @can('borrar-post')
+                        <form style="display:block;" action="{{ route('posts.destroy', $post->id}}" method="POST">                                        
                                 @csrf
                                 @method('DELETE')
-                                @can('borrar-post')
+                                
                                 <button type="submit" class="btn btn-danger"><span class="only-icon">Eliminar </span><i class="fas fa-trash"></i></button>
-                                @endcan
+                                
                             </form>  
+                            @endcan
                         </div>
                         <div class="creator">
                         <?php
