@@ -28,7 +28,7 @@
                             <p class="post-text">{{ $post->content }}</p>
                         </div>
                         
-                    @endforeach 
+                    
                     </div>
                     <div class="">
                     @can('borrar-post')
@@ -57,6 +57,7 @@
                             <span><strong>{{$usuario->name}}</strong></span>
                         @endif
                         </div>
+                    @endforeach 
                 </div>
             </div>
         </div>
