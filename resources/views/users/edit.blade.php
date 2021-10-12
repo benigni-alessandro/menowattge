@@ -25,13 +25,13 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        {!! Form::text('name', null, array('class'=>'form-control'), disabled) !!}
+                                        {!! Form::text('name', disabled, array('class'=>'form-control'), disabled) !!}
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="name">Email</label>
-                                        {!! Form::text('email', null, array('class'=>'form-control'), disabled) !!}
+                                        {!! Form::text('email', disabled, array('class'=>'form-control'), disabled) !!}
                                     </div>
                                 </div>
                                 <div class="col-12">
