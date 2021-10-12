@@ -53,7 +53,7 @@
                                         $roles = DB::table('roles')->pluck('name', 'name')->all();
                                         ?>
                                         <label for="name">Role</label>
-                                        {!! Form::text('roles', null, array('class'=>'form-control')) !!}
+                                        {!! Form::select('roles[]', $roles, [], array('class'=>'form-control')) !!}
                                     </div>
                                 </div>
                                 <div class="col-12">
