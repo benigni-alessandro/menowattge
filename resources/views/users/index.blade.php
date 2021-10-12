@@ -10,7 +10,6 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="text-center">Users</h3>
                             <a class="btn btn-warning" href="{{route('users.create')}}">New</a>
                             <table class="table table-striped mt-2">
                                 <thead style="background-color: #4dd132d0;">
