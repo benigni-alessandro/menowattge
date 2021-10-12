@@ -16,22 +16,6 @@
                     @foreach($posts as $post)
                         
                         <div class="blog-post">
-                        <div class="creator">
-                        <?php
-                            $user_identity = $post->user_id;                    
-                            $usuari = DB::table('users')
-                                ->where('id', '=', $user_identity)
-                                ->get();
-                            foreach($usuari as $usuario){
-                                $immagine = $usuario->photo;
-                            }
-                            ?>
-                            @if(Auth::user()->photo)
-                            <img src="{{Auth::user()->photo}}"      
-                            class="user_image">
-                            <span><strong>{{$usuario->name}}</strong></span>
-                        @endif
-                        </div>
                             <div class="blog-post-img">
                                 <img class="" 
                                 src="{{$post->thumb}}" 
@@ -50,6 +34,22 @@
                                 <button type="submit" class="btn btn-danger"><span class="only-icon">Eliminar </span><i class="fas fa-trash"></i></button>
                                 @endcan
                             </form>  
+                            <div class="creator">
+                        <?php
+                            $user_identity = $post->user_id;                    
+                            $usuari = DB::table('users')
+                                ->where('id', '=', $user_identity)
+                                ->get();
+                            foreach($usuari as $usuario){
+                                $immagine = $usuario->photo;
+                            }
+                            ?>
+                            @if(Auth::user()->photo)
+                            <img src="{{Auth::user()->photo}}"      
+                            class="user_image">
+                            <span><strong>{{$usuario->name}}</strong></span>
+                        @endif
+                        </div>
                         </div>
                     @endforeach 
                     </div>
