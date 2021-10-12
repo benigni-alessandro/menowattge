@@ -4220,8 +4220,8 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 }
 
 .blog-post-img {
-    min-width: 25rem;
-    max-width: 25rem;
+    min-width: 28rem;
+    max-width: 28rem;
     height: 20rem;
     transform:translateX(-6rem);
     position: relative;
