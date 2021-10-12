@@ -12,9 +12,8 @@
                 @can('crear-post')
                     <a class="btn btn-warning" href="{{route('posts.create')}}">New Post</a>
                 @endcan
+                @foreach($posts as $post)
                     <div class="card post">
-                    @foreach($posts as $post)
-                        
                         <div class="blog-post">
                             <div class="blog-post-img">
                                 <img class="" 
@@ -28,7 +27,10 @@
                             <h2 class="title-post">{{ $post->title }}</h2>
                             <p class="post-text">{{ $post->content }}</p>
                         </div>
-                        <div class="">
+                        
+                    @endforeach 
+                    </div>
+                    <div class="">
                         <form style="display:block;" action="{{ route('posts.destroy', $post->id) }}" method="POST">                                        
                                 @csrf
                                 @method('DELETE')
@@ -53,8 +55,6 @@
                             <span><strong>{{$usuario->name}}</strong></span>
                         @endif
                         </div>
-                    @endforeach 
-                    </div>
                 </div>
             </div>
         </div>
