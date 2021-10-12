@@ -14,6 +14,8 @@
                 @endcan
                     <div class="card">
                     @foreach($posts as $post)
+                        
+                        <div class="blog-post">
                         <div class="creator">
                         <?php
                             $user_identity = $post->user_id;                    
@@ -30,7 +32,6 @@
                             <span><strong>{{$usuario->name}}</strong></span>
                         @endif
                         </div>
-                        <div class="blog-post">
                             <div class="blog-post-img">
                                 <img class="" 
                                 src="{{$post->thumb}}" 
