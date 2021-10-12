@@ -19,7 +19,7 @@ class EmailController extends Controller
 
     public function mailSend(Request $request)
     {
-        dd($request);
+        
         $clienti=[];
         $clienti = DB::table('model_has_roles')
             ->select('role_id', 'model_id')
@@ -39,6 +39,7 @@ class EmailController extends Controller
         $attachment->move($path, $name);
 
         $filename = $path.'/'.$name;
+        dd($filename);
 
         
 
