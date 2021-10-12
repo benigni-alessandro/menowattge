@@ -4303,7 +4303,8 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 
     }
     .card.post{
-        max-height: 1000px;       
+        height: 830px;  
+        margin-bottom: 20px;     
     }
 } 
 .card.post{
