@@ -4209,4 +4209,9 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
         display: none;
     }
 }
+@media only screen and (max-width: 647) {
+    .dis-none {
+        display: none;
+    }
+} 
     

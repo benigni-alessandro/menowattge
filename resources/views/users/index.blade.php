@@ -15,7 +15,7 @@
                             <table class="table table-striped mt-2">
                                 <thead style="background-color: #4dd132d0;">
                                 <th style="color: white;">Name</th>
-                                <th style="color: white;">Email</th>
+                                <th style="color: white;" class="dis-none">Email</th>
                                 <th style="color: white;">Rol</th>
                                 <th style="color: white;">Buttons</th>
                                 </thead>
@@ -23,7 +23,7 @@
                                     @foreach($users as $user)
                                     <tr>
                                         <td>{{$user->name}}</td>
-                                        <td>{{$user->email}}</td>
+                                        <td class="dis-none">{{$user->email}}</td>
                                         <td>
                                           @if(!empty($user->getRoleNames()))
                                             @foreach($user->getRoleNames() as $rolName)
