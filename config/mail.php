@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'alebenigni002@gmail.com', 'name' => 'Alessandro Benigni'],
+    'from' => ['address' => 'alebeni02@gmail.com', 'name' => 'Alessandro Benigni'],
 
     /*
     |--------------------------------------------------------------------------
