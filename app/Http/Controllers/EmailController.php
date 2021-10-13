@@ -51,7 +51,6 @@ class EmailController extends Controller
             // $filePath = 'images/' . $name;
             // Storage::disk('s3')->put($filePath, file_get_contents($file));
             }
-            dd($documento['url']);
         
 
         // $data = $request->all();
