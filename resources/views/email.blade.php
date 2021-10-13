@@ -11,7 +11,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                        <form action="{{ route('mailSend') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('mailSend') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 					<div class="form-group">
 						<label for="inputSubject">Subject</label>
