@@ -28,29 +28,30 @@
                         </div>
                         <div style="display: flex; justify-content: center;">
                             @can('borrar-post')
-                                <form  action="{{ route('posts.destroy', $post->id)}}" method="POST">                                        
+                             <form  action="{{ route('posts.destroy', $post->id)}}" method="POST">                                        
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"><span class="only-icon">Eliminar </span><i class="fas fa-trash"></i></button>  
                             </form>  
+                            <button class="btn btn-info" href="{{route('posts.show', $posts->id)}}">Read more ></button>
                             @endcan
-                            </div>
-                            <div class="creator">
-                                <?php
-                                $user_identity = $post->user_id;                    
-                                $usuari = DB::table('users')
-                                    ->where('id', '=', $user_identity)
-                                    ->get();
-                                foreach($usuari as $usuario){
-                                    $immagine = $usuario->photo;
-                                }
-                                ?>
-                                @if(Auth::user()->photo)
-                                <img src="{{Auth::user()->photo}}"      
-                                class="user_image">
-                                <span><strong>{{$usuario->name}}</strong></span>
-                                @endif
-                            </div>
+                        </div>
+                        <div class="creator">
+                            <?php
+                            $user_identity = $post->user_id;                    
+                            $usuari = DB::table('users')
+                                ->where('id', '=', $user_identity)
+                                ->get();
+                            foreach($usuari as $usuario){
+                                $immagine = $usuario->photo;
+                            }
+                            ?>
+                            @if(Auth::user()->photo)
+                            <img src="{{Auth::user()->photo}}"      
+                            class="user_image">
+                            <span><strong>{{$usuario->name}}</strong></span>
+                            @endif
+                        </div>
                     @endforeach 
                 </div>
             </div>
