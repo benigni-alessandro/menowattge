@@ -33,7 +33,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"><span class="only-icon">Eliminar </span><i class="fas fa-trash"></i></button>  
                             </form>  
-                            <button class="btn btn-info" href="{{route('posts.show', $post->id)}}">Read more ></button>
+                            <button class="btn btn-info" href="{{ route('posts.show', $post->id) }}">Read more ></button>
                             @endcan
                         </div>
                         <div class="creator">
