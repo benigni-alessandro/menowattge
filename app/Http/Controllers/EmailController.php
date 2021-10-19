@@ -72,7 +72,7 @@ class EmailController extends Controller
             //     $message->to($datamessage['email'])
             //     ->subject($datamessage['subject'])->from('alebenigni002@gmail.com');
             //   });
-        
+            dd($datamessage);
             Mail::to($datamessage['email'])->send(new Notification($documento['filename'], $datamessage));
            
               
