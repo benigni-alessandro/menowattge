@@ -63,7 +63,7 @@ class EmailController extends Controller
                 'subject' => $request->subject,
                 'name' => $daticliente->name,
                 'email' => $daticliente->email,
-                'content' => $documento['url'],
+                'content' => $documento['filename'],
               ];
               
               
